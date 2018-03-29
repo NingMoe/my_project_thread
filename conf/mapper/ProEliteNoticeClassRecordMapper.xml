@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.ProEliteNoticeClassRecordMapper" >
+  <resultMap id="BaseResultMap" type="models.ProEliteNoticeClassRecord" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="notice_class_id" property="noticeClassId" jdbcType="CHAR" />
+    <result column="notice_text" property="noticeText" jdbcType="VARCHAR" />
+    <result column="creator_id" property="creatorId" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="BIGINT" />
+    <result column="notice_title" property="noticeTitle" jdbcType="VARCHAR" />
+    <result column="ts" property="ts" jdbcType="BIGINT" />
+    <result column="dr" property="dr" jdbcType="CHAR" />
+    <result column="is_use" property="isUse" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, notice_class_id, notice_text, creator_id, create_time, notice_title, ts, dr,is_use
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_elite_notice_class_record
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_elite_notice_class_record
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="models.ProEliteNoticeClassRecord" >
+    insert into pro_elite_notice_class_record (id, notice_class_id, notice_text, 
+      creator_id, create_time, notice_title, 
+      ts, dr,is_use)
+    values (#{id,jdbcType=CHAR}, #{noticeClassId,jdbcType=CHAR}, #{noticeText,jdbcType=VARCHAR}, 
+      #{creatorId,jdbcType=CHAR}, #{createTime,jdbcType=BIGINT}, #{noticeTitle,jdbcType=VARCHAR}, 
+      #{ts,jdbcType=BIGINT}, #{dr,jdbcType=CHAR},#{isUse,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="models.ProEliteNoticeClassRecord" >
+    insert into pro_elite_notice_class_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="noticeClassId != null" >
+        notice_class_id,
+      </if>
+      <if test="noticeText != null" >
+        notice_text,
+      </if>
+      <if test="creatorId != null" >
+        creator_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="noticeTitle != null" >
+        notice_title,
+      </if>
+      <if test="ts != null" >
+        ts,
+      </if>
+      <if test="dr != null" >
+        dr,
+      </if>
+      <if test="isUse != null" >
+        is_use,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="noticeClassId != null" >
+        #{noticeClassId,jdbcType=CHAR},
+      </if>
+      <if test="noticeText != null" >
+        #{noticeText,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorId != null" >
+        #{creatorId,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="noticeTitle != null" >
+        #{noticeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ts != null" >
+        #{ts,jdbcType=BIGINT},
+      </if>
+      <if test="dr != null" >
+        #{dr,jdbcType=CHAR},
+      </if>
+      <if test="isUse != null" >
+        #{isUse,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="models.ProEliteNoticeClassRecord" >
+    update pro_elite_notice_class_record
+    <set >
+      <if test="noticeClassId != null" >
+        notice_class_id = #{noticeClassId,jdbcType=CHAR},
+      </if>
+      <if test="noticeText != null" >
+        notice_text = #{noticeText,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorId != null" >
+        creator_id = #{creatorId,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="noticeTitle != null" >
+        notice_title = #{noticeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="ts != null" >
+        ts = #{ts,jdbcType=BIGINT},
+      </if>
+      <if test="dr != null" >
+        dr = #{dr,jdbcType=CHAR},
+      </if>
+      <if test="isUse != null" >
+        is_use = #{isUse,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="models.ProEliteNoticeClassRecord" >
+    update pro_elite_notice_class_record
+    set notice_class_id = #{noticeClassId,jdbcType=CHAR},
+      notice_text = #{noticeText,jdbcType=VARCHAR},
+      creator_id = #{creatorId,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      notice_title = #{noticeTitle,jdbcType=VARCHAR},
+      ts = #{ts,jdbcType=BIGINT},
+      dr = #{dr,jdbcType=CHAR},
+      is_use=#{isUse,jdbcType=CHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+
+  <select id="selectClassNoticeByEmployeeCode" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select
+    <include refid="Base_Column_List" />
+    from pro_elite_notice_class_record
+    where DR="N" and  notice_class_id = #{employeeCode,jdbcType=CHAR}
+  </select>
+
+
+  <update id="deleteByEmployeeCode" parameterType="java.lang.String" >
+    update pro_elite_notice_class_record
+    set dr = 'Y'
+    where notice_class_id = #{employeeCode,jdbcType=CHAR}
+  </update>
+  <update id="deleteByEmployeeCodeList" parameterType="java.util.List" >
+    update pro_elite_notice_class_record
+    set dr = 'Y'
+    where notice_class_id in
+    <foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+      #{item.employeeCode,jdbcType=CHAR}
+    </foreach>
+  </update>
+  <insert id="insertBatchClassRecord" parameterType="models.ProEliteNoticeClassRecord" >
+    insert into pro_elite_notice_class_record (id, notice_class_id, notice_text,
+    creator_id, create_time, notice_title,
+    ts, dr,is_use)
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (#{item.id,jdbcType=CHAR}, #{item.noticeClassId,jdbcType=CHAR}, #{item.noticeText,jdbcType=VARCHAR},
+      #{item.creatorId,jdbcType=CHAR}, #{item.createTime,jdbcType=BIGINT}, #{item.noticeTitle,jdbcType=VARCHAR},
+      #{item.ts,jdbcType=BIGINT}, #{item.dr,jdbcType=CHAR},#{item.isUse,jdbcType=CHAR})
+    </foreach>
+  </insert>
+</mapper>

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ElitePresentationHeadMapper">
+  <resultMap id="BaseResultMap" type="models.ElitePresentationHead">
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="employee_name" jdbcType="VARCHAR" property="employeeName" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="age" jdbcType="VARCHAR" property="age" />
+    <result column="position_name" jdbcType="VARCHAR" property="positionName" />
+    <result column="result" jdbcType="CHAR" property="result" />
+    <result column="reminder" jdbcType="VARCHAR" property="reminder" />
+    <result column="presentation_time" jdbcType="BIGINT" property="presentationTime" />
+    <result column="creator_id" jdbcType="CHAR" property="creatorId" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="ts" jdbcType="BIGINT" property="ts" />
+    <result column="dr" jdbcType="CHAR" property="dr" />
+
+    <result column="employee_code" jdbcType="VARCHAR" property="employeeCode" />
+    <result column="test_once_id" jdbcType="VARCHAR" property="testOnceId" />
+    <result column="test_id" jdbcType="VARCHAR" property="testId" />
+
+    <result column="def1" jdbcType="VARCHAR" property="def1" />
+    <result column="def2" jdbcType="VARCHAR" property="def2" />
+    <result column="def3" jdbcType="VARCHAR" property="def3" />
+    <result column="def4" jdbcType="VARCHAR" property="def4" />
+    <result column="def5" jdbcType="VARCHAR" property="def5" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, employee_name, shop_name, gender, age, position_name, result, reminder, presentation_time, 
+    creator_id, create_time, ts, dr,employee_code,test_once_id,test_id, def1, def2, def3, def4, def5
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from elite_presentation_head
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from elite_presentation_head
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="models.ElitePresentationHead">
+    insert into elite_presentation_head (id, employee_name, shop_name, 
+      gender, age, position_name, 
+      result, reminder, presentation_time, 
+      creator_id, create_time, ts, 
+      dr, employee_code,test_once_id,test_id,
+      def1, def2, def3,
+      def4, def5)
+    values (#{id,jdbcType=CHAR}, #{employeeName,jdbcType=VARCHAR}, #{shopName,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, #{positionName,jdbcType=VARCHAR}, 
+      #{result,jdbcType=CHAR}, #{reminder,jdbcType=VARCHAR}, #{presentationTime,jdbcType=BIGINT}, 
+      #{creatorId,jdbcType=CHAR}, #{createTime,jdbcType=BIGINT}, #{ts,jdbcType=BIGINT}, 
+      #{dr,jdbcType=CHAR},#{employeeCode,jdbcType=VARCHAR},#{testOnceId,jdbcType=VARCHAR},
+      #{testId,jdbcType=VARCHAR},
+       #{def1,jdbcType=VARCHAR}, #{def2,jdbcType=VARCHAR}, #{def3,jdbcType=VARCHAR},
+      #{def4,jdbcType=VARCHAR}, #{def5,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="models.ElitePresentationHead">
+    insert into elite_presentation_head
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="employeeName != null">
+        employee_name,
+      </if>
+      <if test="shopName != null">
+        shop_name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="positionName != null">
+        position_name,
+      </if>
+      <if test="result != null">
+        result,
+      </if>
+      <if test="reminder != null">
+        reminder,
+      </if>
+      <if test="presentationTime != null">
+        presentation_time,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="ts != null">
+        ts,
+      </if>
+      <if test="dr != null">
+        dr,
+      </if>
+
+      <if test="employeeCode != null">
+        employee_code,
+      </if>
+      <if test="testOnceId != null">
+        test_once_id,
+      </if>
+
+      <if test="testId != null">
+        test_id,
+      </if>
+      <if test="def1 != null">
+        def1,
+      </if>
+      <if test="def2 != null">
+        def2,
+      </if>
+      <if test="def3 != null">
+        def3,
+      </if>
+      <if test="def4 != null">
+        def4,
+      </if>
+      <if test="def5 != null">
+        def5,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="employeeName != null">
+        #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null">
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="positionName != null">
+        #{positionName,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=CHAR},
+      </if>
+      <if test="reminder != null">
+        #{reminder,jdbcType=VARCHAR},
+      </if>
+      <if test="presentationTime != null">
+        #{presentationTime,jdbcType=BIGINT},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="ts != null">
+        #{ts,jdbcType=BIGINT},
+      </if>
+      <if test="dr != null">
+        #{dr,jdbcType=CHAR},
+      </if>
+
+      <if test="employeeCode != null">
+        #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="testOnceId != null">
+        #{testOnceId,jdbcType=VARCHAR},
+      </if>
+
+      <if test="testId != null">
+        #{testId,jdbcType=VARCHAR},
+      </if>
+      <if test="def1 != null">
+        #{def1,jdbcType=VARCHAR},
+      </if>
+      <if test="def2 != null">
+        #{def2,jdbcType=VARCHAR},
+      </if>
+      <if test="def3 != null">
+        #{def3,jdbcType=VARCHAR},
+      </if>
+      <if test="def4 != null">
+        #{def4,jdbcType=VARCHAR},
+      </if>
+      <if test="def5 != null">
+        #{def5,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="models.ElitePresentationHead">
+    update elite_presentation_head
+    <set>
+      <if test="employeeName != null">
+        employee_name = #{employeeName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopName != null">
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        age = #{age,jdbcType=VARCHAR},
+      </if>
+      <if test="positionName != null">
+        position_name = #{positionName,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        result = #{result,jdbcType=CHAR},
+      </if>
+      <if test="reminder != null">
+        reminder = #{reminder,jdbcType=VARCHAR},
+      </if>
+      <if test="presentationTime != null">
+        presentation_time = #{presentationTime,jdbcType=BIGINT},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="ts != null">
+        ts = #{ts,jdbcType=BIGINT},
+      </if>
+      <if test="dr != null">
+        dr = #{dr,jdbcType=CHAR},
+      </if>
+      <if test="def1 != null">
+        def1 = #{def1,jdbcType=VARCHAR},
+      </if>
+      <if test="def2 != null">
+        def2 = #{def2,jdbcType=VARCHAR},
+      </if>
+      <if test="def3 != null">
+        def3 = #{def3,jdbcType=VARCHAR},
+      </if>
+      <if test="def4 != null">
+        def4 = #{def4,jdbcType=VARCHAR},
+      </if>
+      <if test="def5 != null">
+        def5 = #{def5,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="models.ElitePresentationHead">
+    update elite_presentation_head
+    set employee_name = #{employeeName,jdbcType=VARCHAR},
+      shop_name = #{shopName,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      age = #{age,jdbcType=VARCHAR},
+      position_name = #{positionName,jdbcType=VARCHAR},
+      result = #{result,jdbcType=CHAR},
+      reminder = #{reminder,jdbcType=VARCHAR},
+      presentation_time = #{presentationTime,jdbcType=BIGINT},
+      creator_id = #{creatorId,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      ts = #{ts,jdbcType=BIGINT},
+      dr = #{dr,jdbcType=CHAR},
+      employee_code = #{employeeCode,jdbcType=VARCHAR},
+      test_once_id = #{testOnceId,jdbcType=VARCHAR},
+      test_id = #{testId,jdbcType=VARCHAR},
+      def1 = #{def1,jdbcType=VARCHAR},
+      def2 = #{def2,jdbcType=VARCHAR},
+      def3 = #{def3,jdbcType=VARCHAR},
+      def4 = #{def4,jdbcType=VARCHAR},
+      def5 = #{def5,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+
+  <select id="getPresentationListPage" parameterType="com.hht.interceptor.Page" resultType="java.util.Map">
+
+    SELECT
+
+    eph.employee_name employeeName,
+    eph.id ids,
+    eph.shop_name shopName,
+    eph.gender gender,
+    eph.age age,
+    eph.position_name positionName,
+    CASE
+    WHEN eph.result = 'Y' THEN
+    '合格'
+    ELSE
+    '不合格'
+    END result,
+    eph.reminder reminder,
+    eph.presentation_time presentationTime,
+    epb.dimension_name dimensionName,
+    epb.grade grade,
+    epb.describes describes
+    from
+    elite_presentation_head eph,
+    elite_presentation_body  epb
+    WHERE
+    eph.id=epb.parent_id
+    AND eph.dr='N'
+    <if test="params.parentId !=null and params.parentId!='' ">
+      AND epb.parent_id =#{params.parentId}
+    </if>
+
+    <if test="params.employeeName !=null and params.employeeName!='' ">
+      AND eph.employee_name LIKE '%${params.employeeName}%'
+    </if>
+
+    <if test="params.shopName !=null and params.shopName!='' ">
+      AND eph.shop_name LIKE '%${params.shopName}%'
+    </if>
+
+
+
+  </select>
+  <!--批量插入数据-->
+  <insert id="setHeadList" parameterType="models.ElitePresentationHead">
+    insert into elite_presentation_head (id, employee_name, shop_name,
+    gender, age, position_name,
+    result, reminder, presentation_time,
+    creator_id, create_time, ts,
+    dr, employee_code,test_once_id,test_id,
+    def1, def2, def3,
+    def4, def5)
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (#{item.id,jdbcType=CHAR}, #{item.employeeName,jdbcType=VARCHAR}, #{item.shopName,jdbcType=VARCHAR},
+      #{item.gender,jdbcType=VARCHAR}, #{item.age,jdbcType=VARCHAR}, #{item.positionName,jdbcType=VARCHAR},
+      #{item.result,jdbcType=CHAR}, #{item.reminder,jdbcType=VARCHAR}, #{item.presentationTime,jdbcType=BIGINT},
+      #{item.creatorId,jdbcType=CHAR}, #{item.createTime,jdbcType=BIGINT}, #{item.ts,jdbcType=BIGINT},
+      #{item.dr,jdbcType=CHAR},#{item.employeeCode,jdbcType=VARCHAR},#{item.testOnceId,jdbcType=VARCHAR},
+      #{item.testId,jdbcType=VARCHAR},
+      #{item.def1,jdbcType=VARCHAR}, #{item.def2,jdbcType=VARCHAR}, #{item.def3,jdbcType=VARCHAR},
+      #{item.def4,jdbcType=VARCHAR}, #{item.def5,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+
+</mapper>

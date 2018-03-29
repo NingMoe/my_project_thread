@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.ProShopMapper" >
+  <resultMap id="BaseResultMap" type="models.ProShop" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="company_id" property="companyId" jdbcType="CHAR" />
+    <result column="shop_name" property="shopName" jdbcType="VARCHAR" />
+    <result column="shop_nick_name" property="shopNickName" jdbcType="VARCHAR" />
+    <result column="name_pinyin" property="namePinyin" jdbcType="VARCHAR" />
+    <result column="nick_name_pinyin" property="nickNamePinyin" jdbcType="VARCHAR" />
+    <result column="shop_no" property="shopNo" jdbcType="VARCHAR" />
+    <result column="manage_method" property="manageMethod" jdbcType="CHAR" />
+    <result column="shop_brand" property="shopBrand" jdbcType="VARCHAR" />
+    <result column="shop_level" property="shopLevel" jdbcType="CHAR" />
+    <result column="opening_date" property="openingDate" jdbcType="DATE" />
+    <result column="contact" property="contact" jdbcType="VARCHAR" />
+    <result column="contact_tel" property="contactTel" jdbcType="VARCHAR" />
+    <result column="contact_moble" property="contactMoble" jdbcType="VARCHAR" />
+    <result column="shop_email" property="shopEmail" jdbcType="VARCHAR" />
+    <result column="shop_fax" property="shopFax" jdbcType="VARCHAR" />
+    <result column="shop_zip_code" property="shopZipCode" jdbcType="VARCHAR" />
+    <result column="shop_web" property="shopWeb" jdbcType="VARCHAR" />
+    <result column="shop_operation" property="shopOperation" jdbcType="CHAR" />
+    <result column="food_type" property="foodType" jdbcType="CHAR" />
+    <result column="traffic_status_id" property="trafficStatusId" jdbcType="CHAR" />
+    <result column="area_level" property="areaLevel" jdbcType="CHAR" />
+    <result column="business_ircles" property="businessIrcles" jdbcType="CHAR" />
+    <result column="money_type_id" property="moneyTypeId" jdbcType="CHAR" />
+    <result column="shop_nation" property="shopNation" jdbcType="CHAR" />
+    <result column="shop_area" property="shopArea" jdbcType="VARCHAR" />
+    <result column="open_start" property="openStart" jdbcType="CHAR" />
+    <result column="open_end" property="openEnd" jdbcType="CHAR" />
+    <result column="report_time" property="reportTime" jdbcType="CHAR" />
+    <result column="avg_money" property="avgMoney" jdbcType="DECIMAL" />
+    <result column="parking_num" property="parkingNum" jdbcType="INTEGER" />
+    <result column="order_tel" property="orderTel" jdbcType="VARCHAR" />
+    <result column="complaint_tel" property="complaintTel" jdbcType="VARCHAR" />
+    <result column="picture1" property="picture1" jdbcType="VARCHAR" />
+    <result column="picture2" property="picture2" jdbcType="VARCHAR" />
+    <result column="picture3" property="picture3" jdbcType="VARCHAR" />
+    <result column="picture4" property="picture4" jdbcType="VARCHAR" />
+    <result column="picture5" property="picture5" jdbcType="VARCHAR" />
+    <result column="propaganda" property="propaganda" jdbcType="VARCHAR" />
+    <result column="shop_introduce" property="shopIntroduce" jdbcType="VARCHAR" />
+    <result column="shop_address" property="shopAddress" jdbcType="VARCHAR" />
+    <result column="legal_person" property="legalPerson" jdbcType="VARCHAR" />
+    <result column="business_licence" property="businessLicence" jdbcType="VARCHAR" />
+    <result column="hygiene_licence" property="hygieneLicence" jdbcType="VARCHAR" />
+    <result column="reg_address" property="regAddress" jdbcType="VARCHAR" />
+    <result column="business_area" property="businessArea" jdbcType="DECIMAL" />
+    <result column="employee_num" property="employeeNum" jdbcType="INTEGER" />
+    <result column="version" property="version" jdbcType="INTEGER" />
+    <result column="seat_num" property="seatNum" jdbcType="INTEGER" />
+    <result column="bar_num" property="barNum" jdbcType="INTEGER" />
+    <result column="time_zone" property="timeZone" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="enable" property="enable" jdbcType="CHAR" />
+    <result column="creator_id" property="creatorId" jdbcType="CHAR" />
+    <result column="create_time" property="createTime" jdbcType="BIGINT" />
+    <result column="modifier_id" property="modifierId" jdbcType="CHAR" />
+    <result column="modify_time" property="modifyTime" jdbcType="BIGINT" />
+    <result column="ts" property="ts" jdbcType="BIGINT" />
+    <result column="dr" property="dr" jdbcType="CHAR" />
+    <result column="out_name" property="outName" jdbcType="VARCHAR" />
+    <result column="out_code" property="outCode" jdbcType="VARCHAR" />
+    <result column="employee_code" property="employeeCode" jdbcType="VARCHAR" />
+    <result column="serial" property="serial" jdbcType="INTEGER" />
+    <result column="month_rental" property="monthRental" jdbcType="DECIMAL" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, company_id, shop_name, shop_nick_name, name_pinyin, nick_name_pinyin, shop_no, 
+    manage_method, shop_brand, shop_level, opening_date, contact, contact_tel, contact_moble, 
+    shop_email, shop_fax, shop_zip_code, shop_web, shop_operation, food_type, traffic_status_id, 
+    area_level, business_ircles, money_type_id, shop_nation, shop_area, open_start, open_end, 
+    report_time, avg_money, parking_num, order_tel, complaint_tel, picture1, picture2, 
+    picture3, picture4, picture5, propaganda, shop_introduce, shop_address, legal_person, 
+    business_licence, hygiene_licence, reg_address, business_area, employee_num, version, 
+    seat_num, bar_num, time_zone, latitude, longitude, remark, enable, creator_id, create_time, 
+    modifier_id, modify_time, ts, dr, out_name, out_code, serial, month_rental, ip
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_shop
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_shop
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="models.ProShop" >
+    insert into pro_shop (id, company_id, shop_name, 
+      shop_nick_name, name_pinyin, nick_name_pinyin, 
+      shop_no, manage_method, shop_brand, 
+      shop_level, opening_date, contact, 
+      contact_tel, contact_moble, shop_email, 
+      shop_fax, shop_zip_code, shop_web, 
+      shop_operation, food_type, traffic_status_id, 
+      area_level, business_ircles, money_type_id, 
+      shop_nation, shop_area, open_start, 
+      open_end, report_time, avg_money, 
+      parking_num, order_tel, complaint_tel, 
+      picture1, picture2, picture3, 
+      picture4, picture5, propaganda, 
+      shop_introduce, shop_address, legal_person, 
+      business_licence, hygiene_licence, reg_address, 
+      business_area, employee_num, version, 
+      seat_num, bar_num, time_zone, 
+      latitude, longitude, remark, 
+      enable, creator_id, create_time, 
+      modifier_id, modify_time, ts, 
+      dr, out_name, out_code, 
+      serial, month_rental, ip
+      )
+    values (#{id,jdbcType=CHAR}, #{companyId,jdbcType=CHAR}, #{shopName,jdbcType=VARCHAR}, 
+      #{shopNickName,jdbcType=VARCHAR}, #{namePinyin,jdbcType=VARCHAR}, #{nickNamePinyin,jdbcType=VARCHAR}, 
+      #{shopNo,jdbcType=VARCHAR}, #{manageMethod,jdbcType=CHAR}, #{shopBrand,jdbcType=VARCHAR}, 
+      #{shopLevel,jdbcType=CHAR}, #{openingDate,jdbcType=DATE}, #{contact,jdbcType=VARCHAR}, 
+      #{contactTel,jdbcType=VARCHAR}, #{contactMoble,jdbcType=VARCHAR}, #{shopEmail,jdbcType=VARCHAR}, 
+      #{shopFax,jdbcType=VARCHAR}, #{shopZipCode,jdbcType=VARCHAR}, #{shopWeb,jdbcType=VARCHAR}, 
+      #{shopOperation,jdbcType=CHAR}, #{foodType,jdbcType=CHAR}, #{trafficStatusId,jdbcType=CHAR}, 
+      #{areaLevel,jdbcType=CHAR}, #{businessIrcles,jdbcType=CHAR}, #{moneyTypeId,jdbcType=CHAR}, 
+      #{shopNation,jdbcType=CHAR}, #{shopArea,jdbcType=VARCHAR}, #{openStart,jdbcType=CHAR}, 
+      #{openEnd,jdbcType=CHAR}, #{reportTime,jdbcType=CHAR}, #{avgMoney,jdbcType=DECIMAL}, 
+      #{parkingNum,jdbcType=INTEGER}, #{orderTel,jdbcType=VARCHAR}, #{complaintTel,jdbcType=VARCHAR}, 
+      #{picture1,jdbcType=VARCHAR}, #{picture2,jdbcType=VARCHAR}, #{picture3,jdbcType=VARCHAR}, 
+      #{picture4,jdbcType=VARCHAR}, #{picture5,jdbcType=VARCHAR}, #{propaganda,jdbcType=VARCHAR}, 
+      #{shopIntroduce,jdbcType=VARCHAR}, #{shopAddress,jdbcType=VARCHAR}, #{legalPerson,jdbcType=VARCHAR}, 
+      #{businessLicence,jdbcType=VARCHAR}, #{hygieneLicence,jdbcType=VARCHAR}, #{regAddress,jdbcType=VARCHAR}, 
+      #{businessArea,jdbcType=DECIMAL}, #{employeeNum,jdbcType=INTEGER}, #{version,jdbcType=INTEGER}, 
+      #{seatNum,jdbcType=INTEGER}, #{barNum,jdbcType=INTEGER}, #{timeZone,jdbcType=VARCHAR}, 
+      #{latitude,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{enable,jdbcType=CHAR}, #{creatorId,jdbcType=CHAR}, #{createTime,jdbcType=BIGINT}, 
+      #{modifierId,jdbcType=CHAR}, #{modifyTime,jdbcType=BIGINT}, #{ts,jdbcType=BIGINT}, 
+      #{dr,jdbcType=CHAR}, #{outName,jdbcType=VARCHAR}, #{outCode,jdbcType=VARCHAR}, 
+      #{serial,jdbcType=INTEGER}, #{monthRental,jdbcType=DECIMAL}, #{ip,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="models.ProShop" >
+    insert into pro_shop
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="companyId != null" >
+        company_id,
+      </if>
+      <if test="shopName != null" >
+        shop_name,
+      </if>
+      <if test="shopNickName != null" >
+        shop_nick_name,
+      </if>
+      <if test="namePinyin != null" >
+        name_pinyin,
+      </if>
+      <if test="nickNamePinyin != null" >
+        nick_name_pinyin,
+      </if>
+      <if test="shopNo != null" >
+        shop_no,
+      </if>
+      <if test="manageMethod != null" >
+        manage_method,
+      </if>
+      <if test="shopBrand != null" >
+        shop_brand,
+      </if>
+      <if test="shopLevel != null" >
+        shop_level,
+      </if>
+      <if test="openingDate != null" >
+        opening_date,
+      </if>
+      <if test="contact != null" >
+        contact,
+      </if>
+      <if test="contactTel != null" >
+        contact_tel,
+      </if>
+      <if test="contactMoble != null" >
+        contact_moble,
+      </if>
+      <if test="shopEmail != null" >
+        shop_email,
+      </if>
+      <if test="shopFax != null" >
+        shop_fax,
+      </if>
+      <if test="shopZipCode != null" >
+        shop_zip_code,
+      </if>
+      <if test="shopWeb != null" >
+        shop_web,
+      </if>
+      <if test="shopOperation != null" >
+        shop_operation,
+      </if>
+      <if test="foodType != null" >
+        food_type,
+      </if>
+      <if test="trafficStatusId != null" >
+        traffic_status_id,
+      </if>
+      <if test="areaLevel != null" >
+        area_level,
+      </if>
+      <if test="businessIrcles != null" >
+        business_ircles,
+      </if>
+      <if test="moneyTypeId != null" >
+        money_type_id,
+      </if>
+      <if test="shopNation != null" >
+        shop_nation,
+      </if>
+      <if test="shopArea != null" >
+        shop_area,
+      </if>
+      <if test="openStart != null" >
+        open_start,
+      </if>
+      <if test="openEnd != null" >
+        open_end,
+      </if>
+      <if test="reportTime != null" >
+        report_time,
+      </if>
+      <if test="avgMoney != null" >
+        avg_money,
+      </if>
+      <if test="parkingNum != null" >
+        parking_num,
+      </if>
+      <if test="orderTel != null" >
+        order_tel,
+      </if>
+      <if test="complaintTel != null" >
+        complaint_tel,
+      </if>
+      <if test="picture1 != null" >
+        picture1,
+      </if>
+      <if test="picture2 != null" >
+        picture2,
+      </if>
+      <if test="picture3 != null" >
+        picture3,
+      </if>
+      <if test="picture4 != null" >
+        picture4,
+      </if>
+      <if test="picture5 != null" >
+        picture5,
+      </if>
+      <if test="propaganda != null" >
+        propaganda,
+      </if>
+      <if test="shopIntroduce != null" >
+        shop_introduce,
+      </if>
+      <if test="shopAddress != null" >
+        shop_address,
+      </if>
+      <if test="legalPerson != null" >
+        legal_person,
+      </if>
+      <if test="businessLicence != null" >
+        business_licence,
+      </if>
+      <if test="hygieneLicence != null" >
+        hygiene_licence,
+      </if>
+      <if test="regAddress != null" >
+        reg_address,
+      </if>
+      <if test="businessArea != null" >
+        business_area,
+      </if>
+      <if test="employeeNum != null" >
+        employee_num,
+      </if>
+      <if test="version != null" >
+        version,
+      </if>
+      <if test="seatNum != null" >
+        seat_num,
+      </if>
+      <if test="barNum != null" >
+        bar_num,
+      </if>
+      <if test="timeZone != null" >
+        time_zone,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="enable != null" >
+        enable,
+      </if>
+      <if test="creatorId != null" >
+        creator_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="modifierId != null" >
+        modifier_id,
+      </if>
+      <if test="modifyTime != null" >
+        modify_time,
+      </if>
+      <if test="ts != null" >
+        ts,
+      </if>
+      <if test="dr != null" >
+        dr,
+      </if>
+      <if test="outName != null" >
+        out_name,
+      </if>
+      <if test="outCode != null" >
+        out_code,
+      </if>
+      <if test="serial != null" >
+        serial,
+      </if>
+      <if test="monthRental != null" >
+        month_rental,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="shopName != null" >
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopNickName != null" >
+        #{shopNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="namePinyin != null" >
+        #{namePinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="nickNamePinyin != null" >
+        #{nickNamePinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="shopNo != null" >
+        #{shopNo,jdbcType=VARCHAR},
+      </if>
+      <if test="manageMethod != null" >
+        #{manageMethod,jdbcType=CHAR},
+      </if>
+      <if test="shopBrand != null" >
+        #{shopBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="shopLevel != null" >
+        #{shopLevel,jdbcType=CHAR},
+      </if>
+      <if test="openingDate != null" >
+        #{openingDate,jdbcType=DATE},
+      </if>
+      <if test="contact != null" >
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTel != null" >
+        #{contactTel,jdbcType=VARCHAR},
+      </if>
+      <if test="contactMoble != null" >
+        #{contactMoble,jdbcType=VARCHAR},
+      </if>
+      <if test="shopEmail != null" >
+        #{shopEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="shopFax != null" >
+        #{shopFax,jdbcType=VARCHAR},
+      </if>
+      <if test="shopZipCode != null" >
+        #{shopZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shopWeb != null" >
+        #{shopWeb,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOperation != null" >
+        #{shopOperation,jdbcType=CHAR},
+      </if>
+      <if test="foodType != null" >
+        #{foodType,jdbcType=CHAR},
+      </if>
+      <if test="trafficStatusId != null" >
+        #{trafficStatusId,jdbcType=CHAR},
+      </if>
+      <if test="areaLevel != null" >
+        #{areaLevel,jdbcType=CHAR},
+      </if>
+      <if test="businessIrcles != null" >
+        #{businessIrcles,jdbcType=CHAR},
+      </if>
+      <if test="moneyTypeId != null" >
+        #{moneyTypeId,jdbcType=CHAR},
+      </if>
+      <if test="shopNation != null" >
+        #{shopNation,jdbcType=CHAR},
+      </if>
+      <if test="shopArea != null" >
+        #{shopArea,jdbcType=VARCHAR},
+      </if>
+      <if test="openStart != null" >
+        #{openStart,jdbcType=CHAR},
+      </if>
+      <if test="openEnd != null" >
+        #{openEnd,jdbcType=CHAR},
+      </if>
+      <if test="reportTime != null" >
+        #{reportTime,jdbcType=CHAR},
+      </if>
+      <if test="avgMoney != null" >
+        #{avgMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="parkingNum != null" >
+        #{parkingNum,jdbcType=INTEGER},
+      </if>
+      <if test="orderTel != null" >
+        #{orderTel,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintTel != null" >
+        #{complaintTel,jdbcType=VARCHAR},
+      </if>
+      <if test="picture1 != null" >
+        #{picture1,jdbcType=VARCHAR},
+      </if>
+      <if test="picture2 != null" >
+        #{picture2,jdbcType=VARCHAR},
+      </if>
+      <if test="picture3 != null" >
+        #{picture3,jdbcType=VARCHAR},
+      </if>
+      <if test="picture4 != null" >
+        #{picture4,jdbcType=VARCHAR},
+      </if>
+      <if test="picture5 != null" >
+        #{picture5,jdbcType=VARCHAR},
+      </if>
+      <if test="propaganda != null" >
+        #{propaganda,jdbcType=VARCHAR},
+      </if>
+      <if test="shopIntroduce != null" >
+        #{shopIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="shopAddress != null" >
+        #{shopAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null" >
+        #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicence != null" >
+        #{businessLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="hygieneLicence != null" >
+        #{hygieneLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="regAddress != null" >
+        #{regAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessArea != null" >
+        #{businessArea,jdbcType=DECIMAL},
+      </if>
+      <if test="employeeNum != null" >
+        #{employeeNum,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="seatNum != null" >
+        #{seatNum,jdbcType=INTEGER},
+      </if>
+      <if test="barNum != null" >
+        #{barNum,jdbcType=INTEGER},
+      </if>
+      <if test="timeZone != null" >
+        #{timeZone,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        #{enable,jdbcType=CHAR},
+      </if>
+      <if test="creatorId != null" >
+        #{creatorId,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="modifierId != null" >
+        #{modifierId,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        #{modifyTime,jdbcType=BIGINT},
+      </if>
+      <if test="ts != null" >
+        #{ts,jdbcType=BIGINT},
+      </if>
+      <if test="dr != null" >
+        #{dr,jdbcType=CHAR},
+      </if>
+      <if test="outName != null" >
+        #{outName,jdbcType=VARCHAR},
+      </if>
+      <if test="outCode != null" >
+        #{outCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serial != null" >
+        #{serial,jdbcType=INTEGER},
+      </if>
+      <if test="monthRental != null" >
+        #{monthRental,jdbcType=DECIMAL},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="models.ProShop" >
+    update pro_shop
+    <set >
+      <if test="companyId != null" >
+        company_id = #{companyId,jdbcType=CHAR},
+      </if>
+      <if test="shopName != null" >
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopNickName != null" >
+        shop_nick_name = #{shopNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="namePinyin != null" >
+        name_pinyin = #{namePinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="nickNamePinyin != null" >
+        nick_name_pinyin = #{nickNamePinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="shopNo != null" >
+        shop_no = #{shopNo,jdbcType=VARCHAR},
+      </if>
+      <if test="manageMethod != null" >
+        manage_method = #{manageMethod,jdbcType=CHAR},
+      </if>
+      <if test="shopBrand != null" >
+        shop_brand = #{shopBrand,jdbcType=VARCHAR},
+      </if>
+      <if test="shopLevel != null" >
+        shop_level = #{shopLevel,jdbcType=CHAR},
+      </if>
+      <if test="openingDate != null" >
+        opening_date = #{openingDate,jdbcType=DATE},
+      </if>
+      <if test="contact != null" >
+        contact = #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="contactTel != null" >
+        contact_tel = #{contactTel,jdbcType=VARCHAR},
+      </if>
+      <if test="contactMoble != null" >
+        contact_moble = #{contactMoble,jdbcType=VARCHAR},
+      </if>
+      <if test="shopEmail != null" >
+        shop_email = #{shopEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="shopFax != null" >
+        shop_fax = #{shopFax,jdbcType=VARCHAR},
+      </if>
+      <if test="shopZipCode != null" >
+        shop_zip_code = #{shopZipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shopWeb != null" >
+        shop_web = #{shopWeb,jdbcType=VARCHAR},
+      </if>
+      <if test="shopOperation != null" >
+        shop_operation = #{shopOperation,jdbcType=CHAR},
+      </if>
+      <if test="foodType != null" >
+        food_type = #{foodType,jdbcType=CHAR},
+      </if>
+      <if test="trafficStatusId != null" >
+        traffic_status_id = #{trafficStatusId,jdbcType=CHAR},
+      </if>
+      <if test="areaLevel != null" >
+        area_level = #{areaLevel,jdbcType=CHAR},
+      </if>
+      <if test="businessIrcles != null" >
+        business_ircles = #{businessIrcles,jdbcType=CHAR},
+      </if>
+      <if test="moneyTypeId != null" >
+        money_type_id = #{moneyTypeId,jdbcType=CHAR},
+      </if>
+      <if test="shopNation != null" >
+        shop_nation = #{shopNation,jdbcType=CHAR},
+      </if>
+      <if test="shopArea != null" >
+        shop_area = #{shopArea,jdbcType=VARCHAR},
+      </if>
+      <if test="openStart != null" >
+        open_start = #{openStart,jdbcType=CHAR},
+      </if>
+      <if test="openEnd != null" >
+        open_end = #{openEnd,jdbcType=CHAR},
+      </if>
+      <if test="reportTime != null" >
+        report_time = #{reportTime,jdbcType=CHAR},
+      </if>
+      <if test="avgMoney != null" >
+        avg_money = #{avgMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="parkingNum != null" >
+        parking_num = #{parkingNum,jdbcType=INTEGER},
+      </if>
+      <if test="orderTel != null" >
+        order_tel = #{orderTel,jdbcType=VARCHAR},
+      </if>
+      <if test="complaintTel != null" >
+        complaint_tel = #{complaintTel,jdbcType=VARCHAR},
+      </if>
+      <if test="picture1 != null" >
+        picture1 = #{picture1,jdbcType=VARCHAR},
+      </if>
+      <if test="picture2 != null" >
+        picture2 = #{picture2,jdbcType=VARCHAR},
+      </if>
+      <if test="picture3 != null" >
+        picture3 = #{picture3,jdbcType=VARCHAR},
+      </if>
+      <if test="picture4 != null" >
+        picture4 = #{picture4,jdbcType=VARCHAR},
+      </if>
+      <if test="picture5 != null" >
+        picture5 = #{picture5,jdbcType=VARCHAR},
+      </if>
+      <if test="propaganda != null" >
+        propaganda = #{propaganda,jdbcType=VARCHAR},
+      </if>
+      <if test="shopIntroduce != null" >
+        shop_introduce = #{shopIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="shopAddress != null" >
+        shop_address = #{shopAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="legalPerson != null" >
+        legal_person = #{legalPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="businessLicence != null" >
+        business_licence = #{businessLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="hygieneLicence != null" >
+        hygiene_licence = #{hygieneLicence,jdbcType=VARCHAR},
+      </if>
+      <if test="regAddress != null" >
+        reg_address = #{regAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="businessArea != null" >
+        business_area = #{businessArea,jdbcType=DECIMAL},
+      </if>
+      <if test="employeeNum != null" >
+        employee_num = #{employeeNum,jdbcType=INTEGER},
+      </if>
+      <if test="version != null" >
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="seatNum != null" >
+        seat_num = #{seatNum,jdbcType=INTEGER},
+      </if>
+      <if test="barNum != null" >
+        bar_num = #{barNum,jdbcType=INTEGER},
+      </if>
+      <if test="timeZone != null" >
+        time_zone = #{timeZone,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null" >
+        enable = #{enable,jdbcType=CHAR},
+      </if>
+      <if test="creatorId != null" >
+        creator_id = #{creatorId,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="modifierId != null" >
+        modifier_id = #{modifierId,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null" >
+        modify_time = #{modifyTime,jdbcType=BIGINT},
+      </if>
+      <if test="ts != null" >
+        ts = #{ts,jdbcType=BIGINT},
+      </if>
+      <if test="dr != null" >
+        dr = #{dr,jdbcType=CHAR},
+      </if>
+      <if test="outName != null" >
+        out_name = #{outName,jdbcType=VARCHAR},
+      </if>
+      <if test="outCode != null" >
+        out_code = #{outCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serial != null" >
+        serial = #{serial,jdbcType=INTEGER},
+      </if>
+      <if test="monthRental != null" >
+        month_rental = #{monthRental,jdbcType=DECIMAL},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="models.ProShop" >
+    update pro_shop
+    set company_id = #{companyId,jdbcType=CHAR},
+      shop_name = #{shopName,jdbcType=VARCHAR},
+      shop_nick_name = #{shopNickName,jdbcType=VARCHAR},
+      name_pinyin = #{namePinyin,jdbcType=VARCHAR},
+      nick_name_pinyin = #{nickNamePinyin,jdbcType=VARCHAR},
+      shop_no = #{shopNo,jdbcType=VARCHAR},
+      manage_method = #{manageMethod,jdbcType=CHAR},
+      shop_brand = #{shopBrand,jdbcType=VARCHAR},
+      shop_level = #{shopLevel,jdbcType=CHAR},
+      opening_date = #{openingDate,jdbcType=DATE},
+      contact = #{contact,jdbcType=VARCHAR},
+      contact_tel = #{contactTel,jdbcType=VARCHAR},
+      contact_moble = #{contactMoble,jdbcType=VARCHAR},
+      shop_email = #{shopEmail,jdbcType=VARCHAR},
+      shop_fax = #{shopFax,jdbcType=VARCHAR},
+      shop_zip_code = #{shopZipCode,jdbcType=VARCHAR},
+      shop_web = #{shopWeb,jdbcType=VARCHAR},
+      shop_operation = #{shopOperation,jdbcType=CHAR},
+      food_type = #{foodType,jdbcType=CHAR},
+      traffic_status_id = #{trafficStatusId,jdbcType=CHAR},
+      area_level = #{areaLevel,jdbcType=CHAR},
+      business_ircles = #{businessIrcles,jdbcType=CHAR},
+      money_type_id = #{moneyTypeId,jdbcType=CHAR},
+      shop_nation = #{shopNation,jdbcType=CHAR},
+      shop_area = #{shopArea,jdbcType=VARCHAR},
+      open_start = #{openStart,jdbcType=CHAR},
+      open_end = #{openEnd,jdbcType=CHAR},
+      report_time = #{reportTime,jdbcType=CHAR},
+      avg_money = #{avgMoney,jdbcType=DECIMAL},
+      parking_num = #{parkingNum,jdbcType=INTEGER},
+      order_tel = #{orderTel,jdbcType=VARCHAR},
+      complaint_tel = #{complaintTel,jdbcType=VARCHAR},
+      picture1 = #{picture1,jdbcType=VARCHAR},
+      picture2 = #{picture2,jdbcType=VARCHAR},
+      picture3 = #{picture3,jdbcType=VARCHAR},
+      picture4 = #{picture4,jdbcType=VARCHAR},
+      picture5 = #{picture5,jdbcType=VARCHAR},
+      propaganda = #{propaganda,jdbcType=VARCHAR},
+      shop_introduce = #{shopIntroduce,jdbcType=VARCHAR},
+      shop_address = #{shopAddress,jdbcType=VARCHAR},
+      legal_person = #{legalPerson,jdbcType=VARCHAR},
+      business_licence = #{businessLicence,jdbcType=VARCHAR},
+      hygiene_licence = #{hygieneLicence,jdbcType=VARCHAR},
+      reg_address = #{regAddress,jdbcType=VARCHAR},
+      business_area = #{businessArea,jdbcType=DECIMAL},
+      employee_num = #{employeeNum,jdbcType=INTEGER},
+      version = #{version,jdbcType=INTEGER},
+      seat_num = #{seatNum,jdbcType=INTEGER},
+      bar_num = #{barNum,jdbcType=INTEGER},
+      time_zone = #{timeZone,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      enable = #{enable,jdbcType=CHAR},
+      creator_id = #{creatorId,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      modifier_id = #{modifierId,jdbcType=CHAR},
+      modify_time = #{modifyTime,jdbcType=BIGINT},
+      ts = #{ts,jdbcType=BIGINT},
+      dr = #{dr,jdbcType=CHAR},
+      out_name = #{outName,jdbcType=VARCHAR},
+      out_code = #{outCode,jdbcType=VARCHAR},
+      serial = #{serial,jdbcType=INTEGER},
+      month_rental = #{monthRental,jdbcType=DECIMAL},
+      ip = #{ip,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="queryShopList" resultMap="BaseResultMap">
+    SELECT ps.id,ps.shop_name,pe.employee_code FROM pro_shop ps,pro_employee pe,pro_employee_shop pes,
+      pro_position pp,pro_employee_position pep
+      WHERE ps.id=pes.shop_id AND pe.id=pes.employee_id
+      AND pe.id=pep.employee_id AND pp.id=pep.position_id
+      AND pp.position_name='店经理' AND ps.dr='N' AND pe.dr='N'
+      AND pes.dr='N' AND pp.dr='N' AND pep.dr='N';
+  </select>
+  <select id="queryShopName" resultMap="BaseResultMap">
+    SELECT id,shop_name FROM pro_shop WHERE dr='N'
+  </select>
+</mapper>

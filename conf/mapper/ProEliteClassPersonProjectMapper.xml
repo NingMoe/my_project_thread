@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.ProEliteClassPersonProjectMapper">
+  <resultMap id="BaseResultMap" type="models.ProEliteClassPersonProject">
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="cardProject" jdbcType="CHAR" property="cardproject" />
+    <result column="cardType" jdbcType="CHAR" property="cardtype" />
+    <result column="ts" jdbcType="BIGINT" property="ts" />
+    <result column="dr" jdbcType="CHAR" property="dr" />
+    <result column="parent_id" jdbcType="CHAR" property="parentId" />
+    <result column="modifier_id" jdbcType="CHAR" property="modifierId" />
+    <result column="modify_time" jdbcType="BIGINT" property="modifyTime" />
+    <result column="creator_id" jdbcType="CHAR" property="creatorId" />
+    <result column="create_time" jdbcType="BIGINT" property="createTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="score" jdbcType="CHAR" property="score" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, cardProject, cardType, ts, dr, parent_id, modifier_id, modify_time, creator_id, 
+    create_time, remark, score
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pro_elite_class_person_project
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from pro_elite_class_person_project
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="models.ProEliteClassPersonProject">
+    insert into pro_elite_class_person_project (id, cardProject, cardType, 
+      ts, dr, parent_id, modifier_id, 
+      modify_time, creator_id, create_time, 
+      remark, score)
+    values (#{id,jdbcType=CHAR}, #{cardproject,jdbcType=CHAR}, #{cardtype,jdbcType=CHAR}, 
+      #{ts,jdbcType=BIGINT}, #{dr,jdbcType=CHAR}, #{parentId,jdbcType=CHAR}, #{modifierId,jdbcType=CHAR}, 
+      #{modifyTime,jdbcType=BIGINT}, #{creatorId,jdbcType=CHAR}, #{createTime,jdbcType=BIGINT}, 
+      #{remark,jdbcType=VARCHAR}, #{score,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="models.ProEliteClassPersonProject">
+    insert into pro_elite_class_person_project
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cardproject != null">
+        cardProject,
+      </if>
+      <if test="cardtype != null">
+        cardType,
+      </if>
+      <if test="ts != null">
+        ts,
+      </if>
+      <if test="dr != null">
+        dr,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="modifierId != null">
+        modifier_id,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="cardproject != null">
+        #{cardproject,jdbcType=CHAR},
+      </if>
+      <if test="cardtype != null">
+        #{cardtype,jdbcType=CHAR},
+      </if>
+      <if test="ts != null">
+        #{ts,jdbcType=BIGINT},
+      </if>
+      <if test="dr != null">
+        #{dr,jdbcType=CHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=CHAR},
+      </if>
+      <if test="modifierId != null">
+        #{modifierId,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=BIGINT},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="models.ProEliteClassPersonProject">
+    update pro_elite_class_person_project
+    <set>
+      <if test="cardproject != null">
+        cardProject = #{cardproject,jdbcType=CHAR},
+      </if>
+      <if test="cardtype != null">
+        cardType = #{cardtype,jdbcType=CHAR},
+      </if>
+      <if test="ts != null">
+        ts = #{ts,jdbcType=BIGINT},
+      </if>
+      <if test="dr != null">
+        dr = #{dr,jdbcType=CHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=CHAR},
+      </if>
+      <if test="modifierId != null">
+        modifier_id = #{modifierId,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=BIGINT},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="models.ProEliteClassPersonProject">
+    update pro_elite_class_person_project
+    set cardProject = #{cardproject,jdbcType=CHAR},
+      cardType = #{cardtype,jdbcType=CHAR},
+      ts = #{ts,jdbcType=BIGINT},
+      dr = #{dr,jdbcType=CHAR},
+      parent_id = #{parentId,jdbcType=CHAR},
+      modifier_id = #{modifierId,jdbcType=CHAR},
+      modify_time = #{modifyTime,jdbcType=BIGINT},
+      creator_id = #{creatorId,jdbcType=CHAR},
+      create_time = #{createTime,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR},
+      score = #{score,jdbcType=CHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+
+
+
+  <update id="updateEliteClassPersonProjectById" parameterType="models.ProEliteClassPersonProject">
+
+    update pro_elite_class_person_project
+    <set>
+      <if test="cardproject != null">
+        cardProject = #{cardproject,jdbcType=CHAR},
+      </if>
+      <if test="cardtype != null">
+        cardType = #{cardtype,jdbcType=CHAR},
+      </if>
+      <if test="ts != null">
+        ts = #{ts,jdbcType=BIGINT},
+      </if>
+      <if test="dr != null">
+        dr = #{dr,jdbcType=CHAR},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=CHAR},
+      </if>
+      <if test="modifierId != null">
+        modifier_id = #{modifierId,jdbcType=CHAR},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=BIGINT},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+
+  </update>
+
+  <select id="getEliteClassPersonProjectList" resultType="java.util.Map" parameterType="java.util.Map">
+    select
+    id, cardProject, cardType, ts, dr, parent_id parentId, modifier_id modifierId, modify_time modifyTime, creator_id creatorId,
+    create_time createTime, remark, score
+    from pro_elite_class_person_project
+    where parent_id = #{id,jdbcType=CHAR}
+    AND  dr='N'
+  </select>
+  <insert id="setAllProELiteClassPerson" parameterType="models.ProEliteClassPersonProject">
+    insert into pro_elite_class_person_project (id, cardProject, cardType,
+    ts, dr, parent_id, modifier_id,
+    modify_time, creator_id, create_time,
+    remark, score)
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (#{item.id,jdbcType=CHAR}, #{item.cardproject,jdbcType=CHAR}, #{item.cardtype,jdbcType=CHAR},
+      #{item.ts,jdbcType=BIGINT}, #{item.dr,jdbcType=CHAR}, #{item.parentId,jdbcType=CHAR}, #{item.modifierId,jdbcType=CHAR},
+      #{item.modifyTime,jdbcType=BIGINT}, #{item.creatorId,jdbcType=CHAR}, #{item.createTime,jdbcType=BIGINT},
+      #{item.remark,jdbcType=VARCHAR}, #{item.score,jdbcType=CHAR})
+    </foreach>
+  </insert>
+  <delete id="batchDeleteProELiteClassPerson" parameterType="models.ProEliteClassPersonProject">
+    update  pro_elite_class_person_project
+    SET
+    dr='Y'
+    where parent_id in
+    <foreach collection="list" item="item" open="(" close=")" index="index" separator=",">
+      #{item.id,jdbcType=CHAR}
+    </foreach>
+  </delete>
+  <select id="selectExport" parameterType="java.util.Map" resultType="java.util.Map">
+SELECT
+  b.`term` term,
+  d.`employee_name` employeeName,
+  d.`employee_code` employeeCode,
+  c.`cardProject` cardProject,
+  c.`cardType` cardType,
+  c.score cardScore,
+  c.remark cardRemark,
+  a.`remark` remark,
+  a.`score` score
+FROM
+  pro_elite_class_person a
+  LEFT JOIN pro_elite_class b
+    ON a.`class_id` = b.`id`
+    AND b.`dr` = 'N'
+  LEFT JOIN pro_elite_class_person_project c
+    ON a.id = c.`parent_id`
+    AND c.`dr` = 'N'
+  LEFT JOIN pro_employee d
+    ON a.`employee_id` = d.id
+    AND d.dr = 'N'
+WHERE a.dr = 'N'
+     and  b.id = #{id,jdbcType=CHAR}
+
+  </select>
+</mapper>

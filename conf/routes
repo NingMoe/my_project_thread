@@ -1,0 +1,269 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+
+GET         /      controllers.Application.index
+#-------金鹰池基础设置-------------------------------------
+GET    /getProEliteTrainPools controllers.EliteTrainPoolController.getProEliteTrainPools
+GET    /updateProEliteTrainPool controllers.EliteTrainPoolController.updateProEliteTrainPool
+GET    /insertProEliteTrainPool controllers.EliteTrainPoolController.insertProEliteTrainPool
+
+#-------缴费比例设置----------------------------------------
+GET    /getProEliteTrainCosts controllers.EliteTrainCostController.getProEliteTrainCosts
+GET    /insertProEliteTrainCost controllers.EliteTrainCostController.insertProEliteTrainCost
+GET    /updateProEliteTrainCost controllers.EliteTrainCostController.updateProEliteTrainCost
+
+#--------知识库-------------分页 已正常---------------------------------
+GET    /getProEliteTrainRepositorys controllers.EliteTrainRepositoryController.getProEliteTrainRepositorys
+GET    /insertProEliteTrainRepository controllers.EliteTrainRepositoryController.insertProEliteTrainRepository
+GET    /updateProEliteTrainRepository controllers.EliteTrainRepositoryController.updateProEliteTrainRepository
+GET    /deleteProEliteTrainRepository controllers.EliteTrainRepositoryController.deleteProEliteTrainRepository
+
+#--------大堂报名班---分頁已正常-------------------------------------------
+GET    /getProEliteTrainGrooms controllers.EliteGroomController.getProEliteTrainGrooms
+#------删除报名表员工
+GET    /deleteGroomEmployee controllers.EliteGroomController.deleteGroomEmployee
+
+GET    /insertEliteClassPerson controllers.EliteClassPersonController.insertEliteClassPerson
+
+
+
+#--------大堂管理----------------------------------------------
+GET    /insertProEliteClass controllers.EliteClassController.insertProEliteClass
+#----------- 修改班级信息-----------------------
+GET    /updateProEliteClass controllers.EliteClassController.updateProEliteClass
+#---------查询班级  分页已正常
+GET    /getProEliteClasssByPage controllers.EliteClassController.getProEliteClasssByPage
+#-------根据学期获取班级资料
+GET    /getProEliteClassByTerm controllers.EliteClassController.getProEliteClassByTerm
+#--------删除班级成员
+GET    /deleteEliteClassPerson controllers.EliteClassPersonController.deleteEliteClassPerson
+#-------查询班级成员  分页已正常
+GET    /getEliteClassPersonByPage controllers.EliteClassPersonController.getEliteClassPersonByPage
+#--------组班
+GET    /insertEliteClassPerson controllers.EliteClassPersonController.insertEliteClassPerson
+
+#--------发证
+GET    /updateClassCrtificate controllers.EliteClassPersonController.updateClassCrtificate
+
+#--------未通过
+GET    /updateClassNotPass controllers.EliteClassPersonController.updateClassNotPass
+
+
+
+#------------------通知-------------分頁已正常----------------
+GET    /insertEliteNotice controllers.EliteNoticeController.insertEliteNotice
+GET    /updateEliteNotice controllers.EliteNoticeController.updateEliteNotice
+GET    /deleteEliteNotice controllers.EliteNoticeController.deleteEliteNotice
+GET    /updateUseOrDisableEliteNotice controllers.EliteNoticeController.updateUseOrDisableEliteNotice
+GET    /getEliteNoticesByPage controllers.EliteNoticeController.getEliteNoticesByPage
+GET    /updateNoticeRerodIsRead controllers.EliteNoticeRecrodController.updateNoticeRerodIsRead
+
+
+# ---------组班通知
+GET    /queryNoticeList controllers.NoticeClassController.queryList
+POST    /addNotice controllers.NoticeClassController.addNotice
+GET    /noticeRest controllers.NoticeClassController.noticeRest
+
+#==========================================前台 ===================================================================
+
+#------------------店经理入口------------------------------------------------------------------
+#---------------推荐入池-------------------------------------------------------------------
+#-----推荐入池
+GET    /addPersonToShopElite controllers.ShopEliteController.addPersonToShopElite
+#-----审核
+GET    /updateShopElitePersonsBycheck controllers.ShopEliteController.updateShopElitePersonsBycheck
+#-----本店待推荐入池
+GET    /getEmployees controllers.ShopEliteController.getEmployees
+#-----已测评列表
+GET    /getShopElitePersonsByTest controllers.ShopEliteController.getShopElitePersonsByTest
+
+#-----未测评列表
+GET    /getShopElitePersonsByNoTest controllers.ShopEliteController.getShopElitePersonsByNoTest
+
+#-----本店金鹰
+GET    /getShopSelfElites controllers.ShopEliteController.getShopSelfElites
+#-----删除本店金鹰
+GET    /deleteShopSelfElites controllers.ShopEliteController.deleteShopSelfElites
+
+#----------------------------线上考试结果--------------------------
+#-------考试通过的学员列表
+GET    /getExamTransitEmployees controllers.EliteExamController.getExamTransitEmployees
+
+#-----------------------------推荐报班(大堂班，店经理班)------------------
+GET    /addGroomEmployeesToClass controllers.EliteGroomController.addGroomEmployeesToClass
+
+#------------------------------------后备大堂班 （前台）-----------------------------------------
+#------------本店报名大堂班列表
+GET    /getShopSelfGroomToLobby controllers.EliteGroomController.getShopSelfGroomToLobby
+#------------本店已组大堂班班列表
+GET    /getShopSelfInLobbyClass controllers.ShopEliteController.getShopSelfInLobbyClass
+#-------------本店大堂班已发证列表
+GET    /getShopSelfPassLobbyClass controllers.ShopEliteController.getShopSelfPassLobbyClass
+
+
+#------------------------------------后备店经理班 （前台）-----------------------------------------
+#------------本店报名店经理班列表
+GET    /getShopSelfGroomToLaksaClass controllers.EliteGroomController.getShopSelfGroomToLaksaClass
+#------------本店已组店经理班列表
+GET    /getShopSelfInLaksaClass controllers.ShopEliteController.getShopSelfInLaksaClass
+#-------------本店店经理班已发证列表
+GET    /getShopSelfPassLaksaClass controllers.ShopEliteController.getShopSelfPassLaksaClass
+
+
+#------------------------------我的消息（店经理）---------------------------------------------------
+GET    /getLaksaSelfNoticeRecords controllers.EliteNoticeRecrodController.getLaksaSelfNoticeRecords
+#-------------------------------毕业生------------------------------------
+#-------------本店毕业生
+GET    /getShopSelfGraduates controllers.ShopEliteController.getShopSelfGraduates
+
+#------------------------------------------店经理首页-------------------------------
+#---------未读消息数量
+GET    /getUnreadNoticeCount controllers.EliteNoticeRecrodController.getUnreadNoticeCount
+#---------金鹰池情况
+GET    /getElitePoolCountByShopId controllers.ShopEliteController.getElitePoolCountByShopId
+#---------获证情况
+GET    /getShopCertificationCountByShopId controllers.ShopEliteController.getShopCertificationCountByShopId
+
+#------未在大堂岗人员
+GET    /getPassNotInLobby controllers.EliteClassPersonController.getPassNotInLobby
+
+#---------测评列表
+GET    /getTestsByShopId controllers.ShopEliteController.getTestsByShopId
+#---------考试列表
+GET    /getExamsByShopId controllers.ShopEliteController.getExamsByShopId
+
+
+
+
+#-----------------------------员工信息------------------------------------------------
+
+#---------员工首页消息
+GET   /getEmployeeMessege controllers.EliteAppIndex.getEmployeeMessege
+#---------金鹰培养计划须知
+GET   /getEliteAppGoldenPlanStatus controllers.EliteAppGoldenPlan.getEliteAppGoldenPlanStatus
+#---------得到学习资料
+GET   /getEliteAppStudy controllers.EliteAppStudyController.getProEliteTrainRepositorys
+#---------得到员工消息
+GET   /getEmployeeNoticeRecords controllers.EliteAppRegistrationNotice.getEmployeeNoticeRecords
+#---------后备大堂 后备店经理确认参加
+GET   /updateEmployeeSignUp controllers.EliteAppSignUp.updateEmployeeSignUp
+#---------新店辅导班审批
+GET   /updateAudit controllers.EliteAppAuditController.updateAudit
+#--------新店辅导班审批页面查询
+GET   /getAuditMessege controllers.EliteAppAuditController.getAuditMessege
+#--------查询员工组班通知
+GET   /getGroupMessege controllers.EliteAppIndex.getGroupMessege
+#--------查询员工考试状态
+GET   /getAppExaminationController controllers.EliteAppExaminationController.getEmployeeNoticeRecords
+#--------学期
+GET   /getClassByEmployeeCode   controllers.EliteAppIndex.getClassByEmployeeCode
+#--------查询考试成绩
+GET  /getProBeanByEmployee   controllers.EliteAppExaminationController.getProBeanByEmployee
+
+
+
+
+#------考试成绩录入（临时）
+GET    /insertExamRecord controllers.EliteExamController.insertExamRecord
+
+#==========================================报表==================================================================
+#-------门店金鹰汇总    分页 已正常
+GET    /getShopEliteCountInfo controllers.ShopEliteController.getShopEliteCountInfo
+#-------------------分页已正常
+GET    /getShopEliteByShopId controllers.ShopEliteController.getShopEliteByShopId
+
+#-----门店金鹰考试通过汇总   分页已正常
+GET    /getShopEliteExamPassCollect controllers.EliteExamController.getShopEliteExamPassCollect
+#------ 分页已经 正常
+GET    /getShopEliteExamPassInfo controllers.EliteExamController.getShopEliteExamPassInfo
+
+#----当月考试情况
+GET    /getExamCollectOfMonth controllers.EliteExamController.getExamCollectOfMonth
+#---------大堂毕业班，店经理毕业班情况
+#------查询班级情况
+GET    /getClassGraduatesCollect controllers.EliteClassController.getClassGraduatesCollect
+#------班级毕业情况详情
+GET    /getClassPersonInfo controllers.EliteClassPersonController.getClassPersonInfo
+#------门店培训毕业汇总
+GET    /getShopGraduateCollect controllers.ShopEliteController.getShopGraduateCollect
+
+
+
+
+#-------通用查询员工信息
+GET    /getEmployee common.PropertyController.getEmployee
+#-------查询岗位
+GET    /getPostionName common.PropertyController.getPosition
+#-------查询全部岗位名称
+GET    /getPositions common.PropertyController.getPositions
+#-------查询全部门店名称
+GET    /getShop common.PropertyController.getShopNames
+#-------文件上传
+POST    /uploadOSS controllers.UploadController.uploadOSS
+
+
+
+#移动端登录
+GET    /login controllers.LoginController.loginElite
+GET    /elite/loginChangeShop controllers.LoginController.loginChangeShop
+GET    /status  controllers.status.getStatus
+
+#-----------------------外部接口-----------------------------------
+
+#查询员工证书
+GET  /getCertificateByCode   controllers.CertificateController.getCertificateByCode
+
+#测试链接
+POST /TestLinks ws.call.EvaluationController.getTestLinks
+#测试报告
+POST /ReportLinks ws.call.EvaluationController.getReportLinks
+#测评时间
+POST /TestResult ws.call.EvaluationController.getTestResult
+
+#考试成绩
+POST /EvaluationResult ws.call.EvaluationController.getEvaluation
+
+#房源审核信息报表
+GET /getPropertyInformationPage controllers.PropertyInformationController.getPropertyInformationPage
+
+#测评报告 展示
+GET /getPresentationPage controllers.PropertyInformationController.getPresentationPage
+
+
+#删除 人员项目数据
+GET    /deleteEliteClassPersonProjectById    controllers.EliteClassPersonController.deleteEliteClassPersonProjectById
+
+#展示 人员项目
+GET    /getEliteClassPersonProject    controllers.EliteClassPersonController.getEliteClassPersonProject
+
+
+
+#报表
+
+GET /getReportFormHead controllers.ReportFormController.getReportFormHead
+GET /getReportFormBody  controllers.ReportFormController.getReportFormBody
+
+# 导出测评结果的明细表
+GET /queryReportForm  controllers.ReportFormController.queryReportForm
+
+
+#查询员工报名班级信息
+GET /getClassForEmployeeCode  controllers.ShopEliteController.getClassForEmployeeCode
+
+#访问文件
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+#大堂班补录信息
+POST     /elite/importLobbyClass      controllers.ImportController.getLobbyClassImport
+#补录已发证所有大堂人员
+POST     /elite/importLobbyAllClass      controllers.ImportController.getLobbyAllClassImport
+POST     /elite/getAllClassImport      controllers.ImportController.getAllClassImport
+POST     /elite/editeEliteClassPerson       controllers.EliteClassPersonController.editeEliteClassPerson
+#POST     /elite/exportCardPerson      controllers.ImportController.getAllClassImport
+POST    /elite/setExportCardPerson  controllers.ImportController.setExportCardPerson
+GET    /elite/getExportCard  controllers.EliteClassPersonController.getExportCard
+
+

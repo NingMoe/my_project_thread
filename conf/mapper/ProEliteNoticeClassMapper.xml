@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.ProEliteNoticeClassMapper" >
+  <resultMap id="BaseResultMap" type="models.ProEliteNoticeClass" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="notice_title" property="noticeTitle" jdbcType="VARCHAR" />
+    <result column="notice_text" property="noticeText" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="is_default" property="isDefault" jdbcType="CHAR" />
+    <result column="creator_id" property="creatorId" jdbcType="CHAR" />
+    <result column="cteate_time" property="cteateTime" jdbcType="BIGINT" />
+    <result column="modifier_id" property="modifierId" jdbcType="CHAR" />
+    <result column="mofidy_time" property="mofidyTime" jdbcType="BIGINT" />
+    <result column="ts" property="ts" jdbcType="BIGINT" />
+    <result column="dr" property="dr" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, notice_title, notice_text, is_default, creator_id, cteate_time, modifier_id, 
+    mofidy_time, ts, dr,url
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from pro_elite_notice_class
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from pro_elite_notice_class
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="models.ProEliteNoticeClass" >
+    insert into pro_elite_notice_class (id, notice_title, notice_text, 
+      is_default, creator_id, cteate_time, 
+      modifier_id, mofidy_time, ts, url,
+      dr)
+    values (#{id,jdbcType=CHAR}, #{noticeTitle,jdbcType=VARCHAR}, #{noticeText,jdbcType=VARCHAR}, 
+      #{isDefault,jdbcType=CHAR}, #{creatorId,jdbcType=CHAR}, #{cteateTime,jdbcType=BIGINT}, 
+      #{modifierId,jdbcType=CHAR}, #{mofidyTime,jdbcType=BIGINT}, #{ts,jdbcType=BIGINT}, #{url,jdbcType=VARCHAR},
+      #{dr,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="models.ProEliteNoticeClass" >
+    insert into pro_elite_notice_class
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="noticeTitle != null" >
+        notice_title,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="noticeText != null" >
+        notice_text,
+      </if>
+      <if test="isDefault != null" >
+        is_default,
+      </if>
+      <if test="creatorId != null" >
+        creator_id,
+      </if>
+      <if test="cteateTime != null" >
+        cteate_time,
+      </if>
+      <if test="modifierId != null" >
+        modifier_id,
+      </if>
+      <if test="mofidyTime != null" >
+        mofidy_time,
+      </if>
+      <if test="ts != null" >
+        ts,
+      </if>
+      <if test="dr != null" >
+        dr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="noticeTitle != null" >
+        #{noticeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeText != null" >
+        #{noticeText,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        #{isDefault,jdbcType=CHAR},
+      </if>
+      <if test="creatorId != null" >
+        #{creatorId,jdbcType=CHAR},
+      </if>
+      <if test="cteateTime != null" >
+        #{cteateTime,jdbcType=BIGINT},
+      </if>
+      <if test="modifierId != null" >
+        #{modifierId,jdbcType=CHAR},
+      </if>
+      <if test="mofidyTime != null" >
+        #{mofidyTime,jdbcType=BIGINT},
+      </if>
+      <if test="ts != null" >
+        #{ts,jdbcType=BIGINT},
+      </if>
+      <if test="dr != null" >
+        #{dr,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="models.ProEliteNoticeClass" >
+    update pro_elite_notice_class
+    <set >
+      <if test="noticeTitle != null" >
+        notice_title = #{noticeTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeText != null" >
+        notice_text = #{noticeText,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        is_default = #{isDefault,jdbcType=CHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=CHAR},
+      </if>
+      <if test="creatorId != null" >
+        creator_id = #{creatorId,jdbcType=CHAR},
+      </if>
+      <if test="cteateTime != null" >
+        cteate_time = #{cteateTime,jdbcType=BIGINT},
+      </if>
+      <if test="modifierId != null" >
+        modifier_id = #{modifierId,jdbcType=CHAR},
+      </if>
+      <if test="mofidyTime != null" >
+        mofidy_time = #{mofidyTime,jdbcType=BIGINT},
+      </if>
+      <if test="ts != null" >
+        ts = #{ts,jdbcType=BIGINT},
+      </if>
+      <if test="dr != null" >
+        dr = #{dr,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="models.ProEliteNoticeClass" >
+    update pro_elite_notice_class
+    set notice_title = #{noticeTitle,jdbcType=VARCHAR},
+      notice_text = #{noticeText,jdbcType=VARCHAR},
+      is_default = #{isDefault,jdbcType=CHAR},
+      creator_id = #{creatorId,jdbcType=CHAR},
+      url = #{url,jdbcType=CHAR},
+      cteate_time = #{cteateTime,jdbcType=BIGINT},
+      modifier_id = #{modifierId,jdbcType=CHAR},
+      mofidy_time = #{mofidyTime,jdbcType=BIGINT},
+      ts = #{ts,jdbcType=BIGINT},
+      dr = #{dr,jdbcType=CHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <select id="getNoticeList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pro_elite_notice_class
+    where dr= 'N'
+  </select>
+  <update id="updateByNoticeTitle" parameterType="String">
+    UPDATE pro_elite_notice_class SET dr='Y'
+    WHERE notice_title = #{noticeTitle,jdbcType=VARCHAR}
+  </update>
+  <select id="queryNoticeByNoticeTitle" parameterType="String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pro_elite_notice_class
+    where notice_title = #{noticeTitle,jdbcType=VARCHAR} AND is_default='Y'
+  </select>
+  <select id="queryNoticeByNoticeTitleType" parameterType="String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from pro_elite_notice_class
+    where DR='N' AND notice_title = #{noticeTitle,jdbcType=VARCHAR}
+  </select>
+</mapper>
